@@ -68,8 +68,7 @@ console.log(getUsersCreditDetails(usersArray));
 
 const genderView = users => {
  
-  let femaleUser = users
-  .filter(function(user) {
+  let femaleUser = users.filter(function(user) {
     return user.gender == 'female'
   })
   let fullFemaleName = getFullNames(femaleUser)
@@ -84,6 +83,12 @@ const genderView = users => {
 };
 console.log(genderView(usersArray));
 
+// expected output:
+// {
+//    femaleUsers: [ 'Tracie May', 'Kendra Hines', 'Rachelle Schneider', 'Lizzie Alford' ],
+//    maleUsers: [ 'Kirby Doyle', 'Kinney Howard', 'Howard Gilmore' ]
+// }
+
 // ***************************************************************************
 // Bonus - Iteration 5
 // ***************************************************************************
@@ -91,7 +96,19 @@ console.log(genderView(usersArray));
 const data = genderView(usersArray);
 
 const genderCount = data => {
-  // Your code goes here ...
+  let femalesCount = 0
+  let malesCount = 0
+  
+  let females = data.femaleUser
+  for (let female of females) {
+    femalesCount += 1
+  }
+  let males = data.maleUser
+  for (let male of males) {
+    malesCount += 1
+  }
+  console.log(`Female:${femalesCount}`)
+  console.log(`Male:${malesCount}`)
 };
 
 genderCount(data);
